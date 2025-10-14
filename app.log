@@ -156,3 +156,329 @@
 2025-10-12 19:16:10,275 - app.main - INFO - Application shutdown completed
 2025-10-12 19:16:11,742 - app.main - INFO - Starting RAG Backend Application
 2025-10-12 19:16:11,846 - app.main - INFO - Application started successfully
+2025-10-13 00:30:24,101 - app.main - INFO - Application shutdown completed
+2025-10-13 00:30:25,472 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:30:25,586 - app.main - INFO - Application started successfully
+2025-10-13 00:30:27,392 - app.main - INFO - Application shutdown completed
+2025-10-13 00:30:35,319 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:30:35,418 - app.main - INFO - Application started successfully
+2025-10-13 00:30:47,854 - app.main - INFO - Application shutdown completed
+2025-10-13 00:30:49,408 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:30:49,510 - app.main - INFO - Application started successfully
+2025-10-13 00:30:51,817 - app.main - INFO - Application shutdown completed
+2025-10-13 00:30:53,261 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:30:53,358 - app.main - INFO - Application started successfully
+2025-10-13 00:30:57,170 - app.main - INFO - Application shutdown completed
+2025-10-13 00:30:58,575 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:30:58,675 - app.main - INFO - Application started successfully
+2025-10-13 00:31:00,680 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:02,094 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:02,190 - app.main - INFO - Application started successfully
+2025-10-13 00:31:03,439 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:03,544 - app.main - INFO - Application started successfully
+2025-10-13 00:31:06,553 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:08,012 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:08,122 - app.main - INFO - Application started successfully
+2025-10-13 00:31:09,350 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:09,450 - app.main - INFO - Application started successfully
+2025-10-13 00:31:10,705 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:10,805 - app.main - INFO - Application started successfully
+2025-10-13 00:31:12,175 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:12,288 - app.main - INFO - Application started successfully
+2025-10-13 00:31:15,099 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:16,467 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:16,563 - app.main - INFO - Application started successfully
+2025-10-13 00:31:28,696 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:30,076 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:30,174 - app.main - INFO - Application started successfully
+2025-10-13 00:31:35,490 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:36,864 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:36,969 - app.main - INFO - Application started successfully
+2025-10-13 00:31:44,092 - app.main - INFO - Application shutdown completed
+2025-10-13 00:31:56,223 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:31:56,325 - app.main - INFO - Application started successfully
+2025-10-13 00:32:00,638 - app.main - INFO - Application shutdown completed
+2025-10-13 00:32:02,019 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:32:02,126 - app.main - INFO - Application started successfully
+2025-10-13 00:32:03,532 - app.main - INFO - Application shutdown completed
+2025-10-13 00:32:04,938 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:32:05,040 - app.main - INFO - Application started successfully
+2025-10-13 00:32:06,045 - app.main - INFO - Application shutdown completed
+2025-10-13 00:32:07,324 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:32:07,422 - app.main - INFO - Application started successfully
+2025-10-13 00:32:12,037 - app.main - INFO - Application shutdown completed
+2025-10-13 00:32:15,171 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:32:15,271 - app.main - INFO - Application started successfully
+2025-10-13 00:33:00,905 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:06,984 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:07,084 - app.main - INFO - Application started successfully
+2025-10-13 00:33:21,632 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:23,045 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:23,159 - app.main - INFO - Application started successfully
+2025-10-13 00:33:29,579 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:31,200 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:31,302 - app.main - INFO - Application started successfully
+2025-10-13 00:33:33,507 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:34,832 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:34,933 - app.main - INFO - Application started successfully
+2025-10-13 00:33:36,179 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:36,282 - app.main - INFO - Application started successfully
+2025-10-13 00:33:36,785 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:38,130 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:38,227 - app.main - INFO - Application started successfully
+2025-10-13 00:33:38,930 - app.main - INFO - Application shutdown completed
+2025-10-13 00:33:40,260 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:33:40,359 - app.main - INFO - Application started successfully
+2025-10-13 00:35:03,498 - app.main - INFO - Application shutdown completed
+2025-10-13 00:35:04,808 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:35:04,909 - app.main - INFO - Application started successfully
+2025-10-13 00:35:23,162 - app.main - INFO - Application shutdown completed
+2025-10-13 00:35:24,531 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:35:24,635 - app.main - INFO - Application started successfully
+2025-10-13 00:35:38,873 - app.main - INFO - Application shutdown completed
+2025-10-13 00:35:40,168 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:35:40,268 - app.main - INFO - Application started successfully
+2025-10-13 00:36:39,227 - app.main - INFO - Application shutdown completed
+2025-10-13 00:36:40,695 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:36:40,797 - app.main - INFO - Application started successfully
+2025-10-13 00:36:50,023 - app.main - INFO - Application shutdown completed
+2025-10-13 00:36:51,492 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:36:51,592 - app.main - INFO - Application started successfully
+2025-10-13 00:37:03,124 - app.main - INFO - Application shutdown completed
+2025-10-13 00:37:04,624 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:37:04,727 - app.main - INFO - Application started successfully
+2025-10-13 00:59:26,365 - app.main - INFO - Application shutdown completed
+2025-10-13 00:59:27,840 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:59:27,952 - app.main - INFO - Application started successfully
+2025-10-13 00:59:29,266 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:59:29,384 - app.main - INFO - Application started successfully
+2025-10-13 00:59:30,611 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 00:59:30,712 - app.main - INFO - Application started successfully
+2025-10-13 01:00:29,883 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:31,262 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:31,385 - app.main - INFO - Application started successfully
+2025-10-13 01:00:35,899 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:37,363 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:37,469 - app.main - INFO - Application started successfully
+2025-10-13 01:00:38,877 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:38,993 - app.main - INFO - Application started successfully
+2025-10-13 01:00:40,298 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:41,607 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:41,715 - app.main - INFO - Application started successfully
+2025-10-13 01:00:43,048 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:43,159 - app.main - INFO - Application started successfully
+2025-10-13 01:00:43,761 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:45,199 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:45,313 - app.main - INFO - Application started successfully
+2025-10-13 01:00:51,931 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:53,452 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:53,560 - app.main - INFO - Application started successfully
+2025-10-13 01:00:55,065 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:56,594 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:00:56,700 - app.main - INFO - Application started successfully
+2025-10-13 01:00:58,506 - app.main - INFO - Application shutdown completed
+2025-10-13 01:00:59,919 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:00,030 - app.main - INFO - Application started successfully
+2025-10-13 01:01:01,235 - app.main - INFO - Application shutdown completed
+2025-10-13 01:01:02,652 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:02,755 - app.main - INFO - Application started successfully
+2025-10-13 01:01:04,103 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:04,208 - app.main - INFO - Application started successfully
+2025-10-13 01:01:06,717 - app.main - INFO - Application shutdown completed
+2025-10-13 01:01:08,118 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:08,224 - app.main - INFO - Application started successfully
+2025-10-13 01:01:32,294 - app.main - INFO - Application shutdown completed
+2025-10-13 01:01:33,794 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:33,909 - app.main - INFO - Application started successfully
+2025-10-13 01:01:34,813 - app.main - INFO - Application shutdown completed
+2025-10-13 01:01:36,194 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:36,299 - app.main - INFO - Application started successfully
+2025-10-13 01:01:37,905 - app.main - INFO - Application shutdown completed
+2025-10-13 01:01:39,416 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:01:39,518 - app.main - INFO - Application started successfully
+2025-10-13 01:02:51,821 - app.main - INFO - Application shutdown completed
+2025-10-13 01:02:53,314 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:06,911 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:25,145 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:26,543 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:27,885 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:33,982 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:03:54,299 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:05:40,618 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:06:51,142 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:06:59,906 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:07:14,499 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:03,830 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:03,944 - app.main - INFO - Application started successfully
+2025-10-13 01:08:08,057 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:09,467 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:09,568 - app.main - INFO - Application started successfully
+2025-10-13 01:08:09,869 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:11,137 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:11,243 - app.main - INFO - Application started successfully
+2025-10-13 01:08:16,258 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:17,719 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:17,825 - app.main - INFO - Application started successfully
+2025-10-13 01:08:19,129 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:20,527 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:20,641 - app.main - INFO - Application started successfully
+2025-10-13 01:08:22,447 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:23,824 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:08:23,932 - app.main - INFO - Application started successfully
+2025-10-13 01:08:44,691 - app.main - INFO - Application shutdown completed
+2025-10-13 01:08:46,078 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:01,497 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:03,447 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:07,387 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:11,233 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:29,755 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:29,858 - app.main - INFO - Application started successfully
+2025-10-13 01:09:36,980 - app.main - INFO - Application shutdown completed
+2025-10-13 01:09:38,318 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:38,427 - app.main - INFO - Application started successfully
+2025-10-13 01:09:42,537 - app.main - INFO - Application shutdown completed
+2025-10-13 01:09:44,006 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:44,111 - app.main - INFO - Application started successfully
+2025-10-13 01:09:46,220 - app.main - INFO - Application shutdown completed
+2025-10-13 01:09:47,616 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:47,722 - app.main - INFO - Application started successfully
+2025-10-13 01:09:48,894 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:09:48,999 - app.main - INFO - Application started successfully
+2025-10-13 01:10:09,359 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:10,760 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:10,876 - app.main - INFO - Application started successfully
+2025-10-13 01:10:13,686 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:15,161 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:15,264 - app.main - INFO - Application started successfully
+2025-10-13 01:10:22,887 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:24,418 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:24,527 - app.main - INFO - Application started successfully
+2025-10-13 01:10:27,337 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:28,788 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:28,895 - app.main - INFO - Application started successfully
+2025-10-13 01:10:35,013 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:36,516 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:36,642 - app.main - INFO - Application started successfully
+2025-10-13 01:10:37,445 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:38,751 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:38,852 - app.main - INFO - Application started successfully
+2025-10-13 01:10:39,053 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:40,343 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:40,452 - app.main - INFO - Application started successfully
+2025-10-13 01:10:41,256 - app.main - INFO - Application shutdown completed
+2025-10-13 01:10:42,556 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:42,662 - app.main - INFO - Application started successfully
+2025-10-13 01:10:43,889 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 01:10:43,991 - app.main - INFO - Application started successfully
+2025-10-13 03:52:30,501 - app.main - INFO - Application shutdown completed
+2025-10-13 03:52:31,849 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 03:52:31,962 - app.main - INFO - Application started successfully
+2025-10-13 03:55:31,098 - app.main - INFO - Application shutdown completed
+2025-10-13 03:55:32,449 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 03:55:32,568 - app.main - INFO - Application started successfully
+2025-10-13 03:56:29,242 - app.main - INFO - Application shutdown completed
+2025-10-13 03:56:30,574 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 03:56:30,690 - app.main - INFO - Application started successfully
+2025-10-13 04:00:37,687 - app.main - INFO - Application shutdown completed
+2025-10-13 04:00:38,963 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 04:00:39,063 - app.main - INFO - Application started successfully
+2025-10-13 04:00:55,905 - app.main - INFO - Application shutdown completed
+2025-10-13 04:02:49,526 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 04:02:49,644 - app.main - INFO - Application started successfully
+2025-10-13 04:08:42,881 - app.main - INFO - Application shutdown completed
+2025-10-13 04:08:44,231 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 04:08:44,344 - app.main - INFO - Application started successfully
+2025-10-13 04:12:05,481 - app.main - INFO - Application shutdown completed
+2025-10-13 04:12:06,805 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 04:12:06,921 - app.main - INFO - Application started successfully
+2025-10-13 04:12:47,108 - app.main - INFO - Application shutdown completed
+2025-10-13 04:12:48,472 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 04:12:48,591 - app.main - INFO - Application started successfully
+2025-10-13 05:15:39,606 - app.main - INFO - Application shutdown completed
+2025-10-13 05:15:40,953 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 05:15:41,073 - app.main - INFO - Application started successfully
+2025-10-13 15:04:41,084 - app.main - INFO - Application shutdown completed
+2025-10-13 16:20:26,854 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 16:20:26,963 - app.main - INFO - Application started successfully
+2025-10-13 16:44:34,615 - app.main - INFO - Application shutdown completed
+2025-10-13 16:44:35,974 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 16:44:36,091 - app.main - INFO - Application started successfully
+2025-10-13 16:45:50,936 - app.main - INFO - Application shutdown completed
+2025-10-13 16:45:52,230 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 16:45:52,346 - app.main - INFO - Application started successfully
+2025-10-13 16:51:11,178 - app.main - INFO - Application shutdown completed
+2025-10-13 16:51:12,557 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 16:51:12,665 - app.main - INFO - Application started successfully
+2025-10-13 17:13:53,845 - app.main - INFO - Application shutdown completed
+2025-10-13 17:13:55,212 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:13:55,321 - app.main - INFO - Application started successfully
+2025-10-13 17:14:35,501 - app.main - INFO - Application shutdown completed
+2025-10-13 17:14:36,805 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:14:36,921 - app.main - INFO - Application started successfully
+2025-10-13 17:15:09,679 - app.main - INFO - Application shutdown completed
+2025-10-13 17:15:11,024 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:15:11,139 - app.main - INFO - Application started successfully
+2025-10-13 17:15:30,428 - app.main - INFO - Application shutdown completed
+2025-10-13 17:15:31,847 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:15:31,962 - app.main - INFO - Application started successfully
+2025-10-13 17:15:44,324 - app.main - INFO - Application shutdown completed
+2025-10-13 17:15:45,662 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:15:45,771 - app.main - INFO - Application started successfully
+2025-10-13 17:18:00,578 - app.main - INFO - Application shutdown completed
+2025-10-13 17:18:01,974 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:18:02,081 - app.main - INFO - Application started successfully
+2025-10-13 17:19:31,756 - app.main - INFO - Application shutdown completed
+2025-10-13 17:19:33,161 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:19:33,271 - app.main - INFO - Application started successfully
+2025-10-13 17:20:55,399 - app.main - INFO - Application shutdown completed
+2025-10-13 17:20:56,753 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:20:56,862 - app.main - INFO - Application started successfully
+2025-10-13 17:22:36,121 - app.main - INFO - Application shutdown completed
+2025-10-13 17:22:37,446 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:22:37,560 - app.main - INFO - Application started successfully
+2025-10-13 17:22:41,180 - app.main - INFO - Application shutdown completed
+2025-10-13 17:22:45,291 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:22:45,407 - app.main - INFO - Application started successfully
+2025-10-13 17:25:39,978 - app.main - INFO - Application shutdown completed
+2025-10-13 17:25:41,339 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:25:41,452 - app.main - INFO - Application started successfully
+2025-10-13 17:27:35,202 - app.main - INFO - Application shutdown completed
+2025-10-13 17:27:36,604 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:27:36,713 - app.main - INFO - Application started successfully
+2025-10-13 17:31:47,800 - app.main - INFO - Application shutdown completed
+2025-10-13 17:31:49,099 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:31:49,215 - app.main - INFO - Application started successfully
+2025-10-13 17:31:58,952 - app.main - INFO - Application shutdown completed
+2025-10-13 17:32:00,360 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:32:00,476 - app.main - INFO - Application started successfully
+2025-10-13 17:33:22,033 - app.main - INFO - Application shutdown completed
+2025-10-13 17:33:23,374 - app.main - INFO - Starting RAG Backend Application
+2025-10-13 17:33:23,489 - app.main - INFO - Application started successfully
+2025-10-13 17:35:38,243 - app.main - INFO - Application shutdown completed
+2025-10-14 00:18:36,648 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 00:18:36,807 - app.main - INFO - Application started successfully
+2025-10-14 00:23:41,238 - app.main - INFO - Application shutdown completed
+2025-10-14 00:25:48,812 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 00:25:48,918 - app.main - INFO - Application started successfully
+2025-10-14 00:32:42,768 - app.main - INFO - Application shutdown completed
+2025-10-14 12:29:32,052 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:29:32,217 - app.main - INFO - Application started successfully
+2025-10-14 12:30:35,538 - app.main - INFO - Application shutdown completed
+2025-10-14 12:30:36,913 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:30:37,015 - app.main - INFO - Application started successfully
+2025-10-14 12:30:59,395 - app.main - INFO - Application shutdown completed
+2025-10-14 12:31:00,767 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:31:00,868 - app.main - INFO - Application started successfully
+2025-10-14 12:31:28,874 - app.main - INFO - Application shutdown completed
+2025-10-14 12:31:30,256 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:31:30,361 - app.main - INFO - Application started successfully
+2025-10-14 12:31:34,879 - app.main - INFO - Application shutdown completed
+2025-10-14 12:31:36,284 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:31:36,384 - app.main - INFO - Application started successfully
+2025-10-14 12:32:02,271 - app.main - INFO - Application shutdown completed
+2025-10-14 12:32:05,981 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:32:06,086 - app.main - INFO - Application started successfully
+2025-10-14 12:32:51,446 - app.main - INFO - Application shutdown completed
+2025-10-14 12:32:52,804 - app.main - INFO - Starting RAG Backend Application
+2025-10-14 12:32:52,908 - app.main - INFO - Application started successfully
+2025-10-14 12:45:44,834 - app.main - INFO - Application shutdown completed

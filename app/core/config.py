@@ -4,6 +4,11 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
+
+  # USER DETAILS
+  USER_NAME: str = "Vishal"
+
+  # RAG
   MODEL_PROVIDER: str
   MODEL_NAME: str
   EMBEDDING_MODEL_NAME: str

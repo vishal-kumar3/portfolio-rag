@@ -1,11 +1,14 @@
+import re
 import frontmatter
 from langchain_core.documents import Document
 from langchain_community.document_loaders.base import BaseLoader
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from app.services.vector_store import VectorStoreService
+from app.services.llm import LLMService
 
-vector_store = VectorStoreService()
+llm_service = LLMService()
+vector_store = VectorStoreService(embedding_model=llm_service.embedding_model)
 
 
 class FrontmatterMarkdownLoader(BaseLoader):
@@ -25,6 +28,13 @@ class FrontmatterMarkdownLoader(BaseLoader):
     return [Document(page_content=post.content, metadata=metadata)]
 
 
+def clean_markdown(content: str) -> str:
+  content = re.sub(r"#{1,6}\s?", "", content)  # Remove headers
+  content = re.sub(r"\*\*?(.*?)\*\*?", r"\1", content)  # Remove bold
+  content = re.sub(r"$$ .*? $$$$ .*? $$", "", content)  # Remove links
+  return content.strip()
+
+
 def load_and_split_docs(dir_path: str):
   """Loads markdown docs using our custom loader and splits them."""
 
@@ -36,16 +46,18 @@ def load_and_split_docs(dir_path: str):
   )
 
   documents = loader.load()
-  text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,
+  text_splitter = RecursiveCharacterTextSplitter(chunk_size=600,
                                                  chunk_overlap=200)
   final_chunks = []
   for doc in documents:
-    doc.metadata["tags"] = ", ".join(map(str, doc.metadata["tags"]))
-    if len(doc.page_content) > 3000:
-      chunks = text_splitter.split_documents([doc])
-      final_chunks.extend(chunks)
-    else:
-      final_chunks.append(doc)
+    doc.metadata["tags"] = ', '.join(doc.metadata.get("tags", []))
+    # if len(doc.page_content) > 3000:
+    summary = f"{doc.metadata['category']}: {doc.metadata['title']}"
+    doc.page_content = f"{summary}\n{clean_markdown(doc.page_content)}"
+    chunks = text_splitter.split_documents([doc])
+    final_chunks.extend(chunks)
+    # else:
+    #   final_chunks.append(doc)
 
   return final_chunks
 
@@ -61,15 +73,15 @@ def get_vector_data():
 
 
 def main():
-  # chunks = load_and_split_docs("./data")
-  # embed_and_add_to_vector_store(chunks)
-  # print(f"Added {len(chunks)} documents to the vector store.")
-  data = get_vector_data()
-  print(f"Vector store contains {len(data)} items.")
+  chunks = load_and_split_docs("./data")
+  embed_and_add_to_vector_store(chunks)
+  print(f"Added {len(chunks)} documents to the vector store.")
+  # data = get_vector_data()
+  # print(f"Vector store contains {len(data)} items.")
 
-  for item in data:
-    print("-----")
-    print(item)
+  # for item in data:
+  #   print("-----")
+  #   print(item)
 
 
 if __name__ == "__main__":

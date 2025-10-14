@@ -17,7 +17,7 @@ class LLMService:
     except Exception as e:
       raise Exception(f"Failed to create embedding model: {str(e)}")
 
-  def get_chat_model(self, temp: float = 0.1) -> ChatGoogleGenerativeAI:
+  def get_chat_model(self, temp: float = 0.4) -> ChatGoogleGenerativeAI:
     try:
       return ChatGoogleGenerativeAI(model=settings.MODEL_NAME,
                                     google_api_key=settings.MODEL_API_KEY,

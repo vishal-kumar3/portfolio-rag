@@ -5,8 +5,10 @@ from contextlib import asynccontextmanager
 import logging
 
 from app.core.logging import setup_logging
+from app.services.chat import ChatSession
 from app.services.llm import LLMService
 from app.services.prompt import Prompt_Template
+from app.services.session import SessionManager
 from app.services.vector_store import VectorStoreService
 from app.services.rag import RAGService
 from app.core.config import settings
@@ -24,9 +26,13 @@ async def lifespan(app: FastAPI):
 
   prompt_template = Prompt_Template()
   llm_service = LLMService()
+  session_manager = SessionManager()
+  chat_session = ChatSession(session_manager, prompt_template)
+  app.state.chat_session = chat_session
+  app.state.session_manager = session_manager
   app.state.vector_store = VectorStoreService(llm_service.embedding_model)
   app.state.rag_service = RAGService(app.state.vector_store, llm_service,
-                                     prompt_template)
+                                     app.state.chat_session, prompt_template)
 
   logger.info("Application started successfully")
   yield
