@@ -7,6 +7,7 @@ class Settings(BaseSettings):
 
   # USER DETAILS
   USER_NAME: str = "Vishal"
+  ASSISTANT_NAME: str = "Vishi"
 
   # RAG
   MODEL_PROVIDER: str
