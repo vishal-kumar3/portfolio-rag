@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from typing import List, Tuple
-from langchain_core.messages import BaseMessage
+from typing import List, Dict, Tuple
+from langchain_core.messages import BaseMessage, HumanMessage
 
+from app.services.id_generator import IDGenerator
 from app.services.prompt import Prompt_Template
-from app.services.session import SessionManager
 
 
 @dataclass
@@ -14,35 +14,24 @@ class Chat:
 
 class ChatSession:
 
-  def __init__(self, session_manager: SessionManager,
-               prompt_template: Prompt_Template):
-    self._chat_history: List[Chat] = []
+  def __init__(self, prompt_template: Prompt_Template):
+    self._chat_history: Dict[str, List[BaseMessage]] = {}
     self.prompt_service = prompt_template
-    self.session_manager = session_manager
+    self._active_sessions = set()
 
-  def id_exists(self, user_id: str) -> bool:
-    for chat in self._chat_history:
-      if chat.id == user_id:
-        return True
-    return False
-
-  def get_raw_chat_history(self, user_id: str) -> List[BaseMessage] | None:
-    for chat in self._chat_history:
-      if chat.id == user_id:
-        return chat.chat_history
-    return None
+  def get_raw_chat_history(self, chat_id: str) -> List[BaseMessage] | None:
+    return self._chat_history.get(chat_id)
 
   def create_chat(self) -> Tuple[List[BaseMessage], str]:
-    user_id = self.session_manager.generate_id()
-    chat = Chat(id=user_id, chat_history=[])
-    self._chat_history.append(chat)
-    return chat.chat_history, user_id
+    user_id = self.generate_user_id()
+    self._chat_history[user_id] = []
+    return self._chat_history[user_id], user_id
 
   def get_chat_history(self, user_id: str) -> str:
     chat_history = self.get_raw_chat_history(user_id)
 
     if chat_history is None:
-      chat_history, user_id = self.create_chat()
+      raise ValueError("No chat found!")
 
     def seed_initial_prompt():
       if not len(chat_history):
@@ -55,7 +44,42 @@ class ChatSession:
         for i, msg in enumerate(chat_history)
     ])
 
+  def get_chat_history_for_user(self, user_id: str):
+    chat_history = self.get_raw_chat_history(user_id)
+    if chat_history is None:
+      return []
+
+    user_chat_history = [{
+        "user": msg.content
+    } if isinstance(msg, HumanMessage) else {
+        "ai": msg.content
+    } for msg in chat_history]
+    return user_chat_history
+
   def add_message(self, user_id: str, message: BaseMessage):
     chat_history = self.get_raw_chat_history(user_id)
     if chat_history is not None:
       chat_history.append(message)
+
+  def generate_user_id(self) -> str:
+    user_id = None
+    retry = 3
+    while retry > 0:
+      potential_id = IDGenerator.generate_id()
+      if potential_id not in self._active_sessions:
+        user_id = potential_id
+        self._active_sessions.add(user_id)
+        break
+      retry -= 1
+
+    if user_id is None:
+      raise RuntimeError("Failed to generate unique session ID")
+
+    return user_id
+
+  def session_exists(self, session_id: str) -> bool:
+    return session_id in self._active_sessions
+
+  def remove_session(self, session_id: str) -> None:
+    if session_id in self._active_sessions:
+      self._active_sessions.remove(session_id)

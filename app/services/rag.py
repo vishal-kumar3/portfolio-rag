@@ -5,7 +5,6 @@ from langchain_core.messages import BaseMessage
 
 from app.services.chat import ChatSession
 from app.services.prompt import Prompt_Template
-from app.services.session import SessionManager
 from app.services.vector_store import VectorStoreService
 from app.services.llm import LLMService
 
