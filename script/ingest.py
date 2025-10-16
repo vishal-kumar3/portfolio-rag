@@ -51,6 +51,9 @@ def load_and_split_docs(dir_path: str):
   final_chunks = []
   for doc in documents:
     doc.metadata["tags"] = ', '.join(doc.metadata.get("tags", []))
+    doc.metadata["directory"] = doc.metadata["source"].split("/")[-2]
+    if "social_links" in doc.metadata["source"]:
+      doc.metadata["type"] = "contact"
     # if len(doc.page_content) > 3000:
     summary = f"{doc.metadata['category']}: {doc.metadata['title']}"
     doc.page_content = f"{summary}\n{clean_markdown(doc.page_content)}"

@@ -20,20 +20,58 @@ class RAGService:
     self.prompt_service = prompt_template
     self.chat_session = chat_session
 
-  async def rag_query_chain(self, user_id):
-    llm = self.llm.get_chat_model()
+  @staticmethod
+  def preprocess_query(query: str) -> dict:
+    synonyms = {
+        "email": {
+            "filter": {
+                "type": "contact"
+            }
+        },
+        "contact": {
+            "filter": {
+                "type": "contact"
+            }
+        },
+        "connect": {
+            "filter": {
+                "type": "contact"
+            }
+        },
+        # "personal project": {
+        #   "filter": {
+        #     "directory": "project"
+        #   }
+        # },
+        # "current employment": {
+        #   "filter": {
+        #     "directory": "experience"
+        #   }
+        # }
+    }
+    query_lower = query.lower()
+    for key, value in synonyms.items():
+      if key in query_lower:
+        return {"query": query, "filter": value["filter"]}
+    return {"query": query, "filter": {}}
+
+  async def rag_query_chain(self, user_id, streaming: bool = False):
+    llm = self.llm.get_chat_model(streaming=streaming)
     prompt = self.prompt_service.rag_prompt()
     retriever = self.vector_store.get_retriever()
 
     def get_context(input_dict: Dict[str, Any]):
-      return retriever.get_relevant_documents(input_dict["question"])
+      result = retriever.get_relevant_documents(input_dict["question"])
+      return result
 
-    return (RunnableMap(
-        {
+    chain = (
+        RunnableMap({
             "context": get_context,
             "question": RunnablePassthrough(),
-            "chat_history":
-            lambda _: self.chat_session.get_chat_history(user_id)
+            "chat_history": lambda _: self.chat_session.get_chat_history(user_id)
         })
-            | prompt
-            | llm)
+        | prompt
+        | llm
+    )
+
+    return chain

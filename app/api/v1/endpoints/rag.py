@@ -25,31 +25,71 @@ async def chat_history(
   except Exception as e:
     raise HTTPException(status_code=404, detail=str(e))
 
+from fastapi.responses import StreamingResponse
+
 @router.post('/query')
 async def chat_bot(
-  body: ChatBotQuerySchema,
-  request: Request
+    body: ChatBotQuerySchema,
+    request: Request
 ):
-  try:
-    rag_service: RAGService = request.app.state.rag_service
-    chat_session: ChatSession = request.app.state.chat_session
-    question = f"[{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]: " + body.query
+    try:
+        rag_service: RAGService = request.app.state.rag_service
+        chat_session: ChatSession = request.app.state.chat_session
+        question = f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]: " + body.query
 
-    if not (body.userId and chat_session.session_exists(body.userId)):
-      _, user_id = chat_session.create_chat()
-      body.userId = user_id
+        user_id = body.userId if body.userId else ""
+        if not (user_id and chat_session.session_exists(user_id)):
+            _, new_user_id = chat_session.create_chat()
+            user_id = new_user_id
+            body.userId = new_user_id
 
-    chat_session.add_message(body.userId, HumanMessage(content=question))
+        chat_session.add_message(user_id, HumanMessage(content=question))
 
-    chain = await rag_service.rag_query_chain(body.userId)
-    response = await chain.ainvoke({"question": question})
+        chain = await rag_service.rag_query_chain(user_id, streaming=True)
 
-    chat_session.add_message(body.userId, AIMessage(content=f"[{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]: {response.content}"))
+        async def generate_response():
+            import json
+            current_response = []
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-    return {
-        "response": response.content,
-        "userId": body.userId
-    }
+            try:
+                async for chunk in chain.astream({"question": question}):
+                    if chunk.content:
+                        current_response.append(chunk.content)
+                        response_data = {
+                            "type": "chunk",
+                            "timestamp": timestamp,
+                            "content": chunk.content,
+                            "userId": user_id
+                        }
+                        yield f"data: {json.dumps(response_data)}\n\n"
 
-  except Exception as e:
-    raise HTTPException(status_code=500, detail=str(e))
+                # Store the complete response in chat history
+                full_response = "".join(current_response)
+                chat_session.add_message(
+                    user_id,
+                    AIMessage(content=f"[{timestamp}]: {full_response}")
+                )
+
+                # Send completion message
+                yield f"data: {json.dumps({'type': 'done', 'userId': user_id})}\n\n"
+
+            except Exception as e:
+                error_data = {
+                    "type": "error",
+                    "error": str(e),
+                    "userId": user_id
+                }
+                yield f"data: {json.dumps(error_data)}\n\n"
+
+        return StreamingResponse(
+            generate_response(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+            }
+        )
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

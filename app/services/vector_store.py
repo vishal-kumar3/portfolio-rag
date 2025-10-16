@@ -26,7 +26,7 @@ class VectorStoreService:
       raise Exception(f"Failed to query vector store: {str(e)}")
 
   def get_retriever(self, search_kwargs: Optional[Dict[str, Any]] = None):
-    kwargs = search_kwargs or {"k": 5}
+    kwargs = search_kwargs or {"k": 7}
     return self.client.as_retriever(search_kwargs=kwargs)
 
   @staticmethod

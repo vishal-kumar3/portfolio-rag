@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import List, Dict, Tuple
 from langchain_core.messages import BaseMessage, HumanMessage
@@ -10,9 +10,9 @@ from app.services.prompt import Prompt_Template
 
 @dataclass
 class Chat:
-  last_seen: datetime = datetime.now()
-  created_at: datetime = datetime.now()
-  chat_history: List[BaseMessage] = []
+  last_seen: datetime = field(default_factory=datetime.now)
+  created_at: datetime = field(default_factory=datetime.now)
+  chat_history: List[BaseMessage] = field(default_factory=list)
 
 
 class ChatSession:
@@ -43,8 +43,9 @@ class ChatSession:
       raise ValueError("No chat found!")
 
     def seed_initial_prompt():
-      if not len(chat_history):
-        prompt = self.prompt_service.inject_initial_prompt()
+      if not len(chat_history) or len(chat_history) == 1:
+        prompt = self.prompt_service.inject_system_prompt(
+            settings.USER_NAME, settings.ASSISTANT_NAME)
         return prompt
       return ''
 
