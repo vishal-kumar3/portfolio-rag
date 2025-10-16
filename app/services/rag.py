@@ -1,7 +1,6 @@
 import logging
-from typing import List, Dict, Any
+from typing import Dict, Any
 from langchain_core.runnables import RunnableMap, RunnablePassthrough
-from langchain_core.messages import BaseMessage
 
 from app.services.chat import ChatSession
 from app.services.prompt import Prompt_Template
@@ -64,14 +63,14 @@ class RAGService:
       result = retriever.get_relevant_documents(input_dict["question"])
       return result
 
-    chain = (
-        RunnableMap({
+    chain = (RunnableMap(
+        {
             "context": get_context,
             "question": RunnablePassthrough(),
-            "chat_history": lambda _: self.chat_session.get_chat_history(user_id)
+            "chat_history":
+            lambda _: self.chat_session.get_chat_history(user_id)
         })
-        | prompt
-        | llm
-    )
+             | prompt
+             | llm)
 
     return chain
