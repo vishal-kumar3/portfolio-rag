@@ -25,52 +25,118 @@ class RAGService:
         "email": {
             "filter": {
                 "type": "contact"
-            }
+            },
+            "tags": "contact, email, linkedin, github, twitter, discord",
+            "temperature": 0.3
         },
         "contact": {
             "filter": {
                 "type": "contact"
-            }
+            },
+            "tags": "contact, email, linkedin, github, twitter, discord",
+            "temperature": 0.3
         },
         "connect": {
             "filter": {
                 "type": "contact"
-            }
+            },
+            "tags": "contact, email, linkedin, github, twitter, discord",
+            "temperature": 0.3
         },
-        # "personal project": {
-        #   "filter": {
-        #     "directory": "project"
-        #   }
-        # },
-        # "current employment": {
-        #   "filter": {
-        #     "directory": "experience"
-        #   }
-        # }
+        "personal project": {
+            "filter": {
+                "directory": "project"
+            },
+            "tags": "Project, Devcord, WriteFlow, Interview-AI",
+            "temperature": 0.5
+        },
+        "current employment": {
+            "filter": {
+                "directory": "experience",
+                "timeline_status": "ongoing"
+            },
+            "tags": "Experience, Espo, Internship",
+            "temperature": 0.3
+        },
+        "internship": {
+            "filter": {
+                "directory": "experience"
+            },
+            "tags": "Experience, Fiel, Espo, Internship",
+            "temperature": 0.3
+        },
+        "geospatial": {
+            "filter": {
+                "directory": "experience",
+                "source": "data/experience/fiel.md"
+            },
+            "tags": "Fiel, geospatial, filtering",
+            "temperature": 0.3
+        },
+        "vilash": {
+            "filter": {
+                "directory": "about"
+            },
+            "tags": "Vishal, summary, about",
+            "temperature": 0.3
+        },
+        "hobbies": {
+            "filter": {
+                "directory": "about"
+            },
+            "tags": "summary, about, hobbies, interests",
+            "temperature": 0.3
+        }
     }
     query_lower = query.lower()
     for key, value in synonyms.items():
       if key in query_lower:
-        return {"query": query, "filter": value["filter"]}
-    return {"query": query, "filter": {}}
+        return {
+            "query": query,
+            "filter": value["filter"],
+            "tags": value.get("tags", ""),
+            "temperature": value.get("temperature", 0.4)
+        }
+    return {
+        "query": query,
+        "filter": {},
+        "tags": "",
+        "temperature": 0.4
+    }
 
   async def rag_query_chain(self, user_id, streaming: bool = False):
-    llm = self.llm.get_chat_model(streaming=streaming)
-    prompt = self.prompt_service.rag_prompt()
     retriever = self.vector_store.get_retriever()
+    prompt = self.prompt_service.rag_prompt()
 
-    def get_context(input_dict: Dict[str, Any]):
-      result = retriever.get_relevant_documents(input_dict["question"])
-      return result
+    def transform_input(input_dict: Dict[str, Any]):
+        # Preprocess the query to get filters, tags, and temperature
+        processed = self.preprocess_query(input_dict["question"])
 
-    chain = (RunnableMap(
-        {
-            "context": get_context,
-            "question": RunnablePassthrough(),
-            "chat_history":
-            lambda _: self.chat_session.get_chat_history(user_id)
-        })
-             | prompt
-             | llm)
+        # Get context based on processed query
+        context = retriever.invoke(processed["query"])
+
+        # Extract metadata for debugging
+        metadata = [doc.metadata["source"].split("/")[-1] for doc in context]
+        print("Retrieved documents:", metadata)
+
+        # Get the query-specific settings
+        temp = processed.get("temperature", 0.4)
+
+        # Update LLM temperature if needed
+        if temp != 0.4:
+            self.llm.get_chat_model(temp=temp, streaming=streaming)
+
+        return {
+            "context": context,
+            "tags": processed.get("tags", "No specific tags"),
+            "filters": str(processed.get("filter", {})),  # Convert dict to string for template
+            "question": input_dict["question"],
+            "chat_history": self.chat_session.get_chat_history(user_id)
+        }
+
+    chain = (
+        RunnablePassthrough() | transform_input | prompt |
+        self.llm.get_chat_model(streaming=streaming)
+    )
 
     return chain

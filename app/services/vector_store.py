@@ -26,8 +26,9 @@ class VectorStoreService:
       raise Exception(f"Failed to query vector store: {str(e)}")
 
   def get_retriever(self, search_kwargs: Optional[Dict[str, Any]] = None):
-    kwargs = search_kwargs or {"k": 7}
-    return self.client.as_retriever(search_kwargs=kwargs)
+    kwargs = search_kwargs or {"k": 10}
+    docs = self.client.as_retriever(search_kwargs=kwargs)
+    return docs
 
   @staticmethod
   def create_vector_store(embedding_model, vector_store_path: str) -> Chroma:

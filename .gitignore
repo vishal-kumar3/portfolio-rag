@@ -1,5 +1,6 @@
 # rag data files
 data/
+vector_store/
 
 # Python-generated files
 __pycache__/
