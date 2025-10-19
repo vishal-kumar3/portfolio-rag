@@ -1,6 +1,8 @@
 from datetime import datetime
+from typing import Optional
+from fastapi.responses import StreamingResponse
 from fastapi.routing import APIRouter
-from fastapi import HTTPException, Request
+from fastapi import HTTPException, Query, Request
 from langchain_core.messages import HumanMessage, AIMessage
 
 from app.schemas.rag import ChatBotQuerySchema
@@ -23,21 +25,21 @@ async def chat_history(user_id: str, request: Request):
     raise HTTPException(status_code=404, detail=str(e))
 
 
-from fastapi.responses import StreamingResponse
-
-
-@router.post('/query')
-async def chat_bot(body: ChatBotQuerySchema, request: Request):
+@router.get('/query')
+async def chat_bot(request: Request,
+                   query: str = Query(..., description="User query"),
+                   userId: Optional[str] = Query(
+                       None, description="Optional user ID")):
   try:
     rag_service: RAGService = request.app.state.rag_service
     chat_session: ChatSession = request.app.state.chat_session
-    question = f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]: " + body.query
+    question = f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]: " + query
 
-    user_id = body.userId if body.userId else ""
+    user_id = userId if userId else ""
     if not (user_id and chat_session.session_exists(user_id)):
       _, new_user_id = chat_session.create_chat()
       user_id = new_user_id
-      body.userId = new_user_id
+      userId = new_user_id
 
     chat_session.add_message(user_id, HumanMessage(content=question))
 
@@ -61,6 +63,7 @@ async def chat_bot(body: ChatBotQuerySchema, request: Request):
 
         # Store the complete response in chat history
         full_response = "".join(current_response)
+
         chat_session.add_message(
             user_id, AIMessage(content=f"[{timestamp}]: {full_response}"))
 

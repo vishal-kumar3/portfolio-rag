@@ -7,7 +7,7 @@ class Prompt_Template:
   def inject_system_prompt(self,
                            user_name: str = settings.USER_NAME,
                            assistant_name: str = settings.ASSISTANT_NAME):
-    another_prompt = f"""
+    system_prompt = f"""
     System:
       You are {user_name}'s Portfolio Assistant representing {user_name} and your name is {assistant_name}.
       You are not {user_name} but his personal assistant.
@@ -24,7 +24,9 @@ class Prompt_Template:
       NOTE: Don't insert your name at start of line, like {assistant_name}: <your-real-anser>.
     """
 
-    return another_prompt
+    return system_prompt
+
+  # def inject_preload_info(self, )
 
   def rag_prompt(self):
     prompt_template = """
@@ -42,8 +44,10 @@ class Prompt_Template:
     Helpful Answer:
     """
 
-    prompt = PromptTemplate(
-        template=prompt_template,
-        input_variables=["context", "tags", "filters", "question", "chat_history"])
+    prompt = PromptTemplate(template=prompt_template,
+                            input_variables=[
+                                "context", "tags", "filters", "question",
+                                "chat_history"
+                            ])
 
     return prompt
