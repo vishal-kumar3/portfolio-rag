@@ -5,10 +5,9 @@
       "src": "app/main.py",
       "use": "@vercel/python",
       "config": {
-        "installCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync",
+        "installCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && ~/.cargo/bin/uv pip install --system pip setuptools wheel && ~/.cargo/bin/uv sync",
         "buildCommand": "make seed",
-        "runtime": "python3.12",
-        "maxLambdaSize": "15mb"
+        "runtime": "python3.12"
       }
     }
   ],
