@@ -1,14 +1,42 @@
 {
-  "build": [
+  "version": 2,
+  "builds": [
     {
       "src": "app/main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "installCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync",
+        "buildCommand": "make seed",
+        "runtime": "python3.12"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/docs",
+      "dest": "app/main.py"
+    },
+    {
+      "src": "/openapi.json",
+      "dest": "app/main.py"
+    },
+    {
+      "src": "/query",
+      "dest": "app/main.py"
+    },
+    {
+      "src": "/chat_history/(.*)",
+      "dest": "app/main.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "app/main.py"
     }
-  ]
+  ],
+  "functions": {
+    "app/main.py": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
 }

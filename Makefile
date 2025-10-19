@@ -1,8 +1,13 @@
-dev:
-	uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+install:
+	uv sync
 
-seed:
+seed: install
 	uv run python3 -m script.ingest
 
-test:
+dev: install
+	uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+test: install
 	uv run pytest -v
+
+.PHONY: install seed dev test
