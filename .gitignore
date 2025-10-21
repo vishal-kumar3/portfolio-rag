@@ -1,6 +1,5 @@
 # rag data files
 data/
-vector_store/
 .env
 
 # Python-generated files

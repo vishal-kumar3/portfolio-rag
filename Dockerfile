@@ -13,22 +13,29 @@ RUN apt-get update && apt-get install -y \
 # Install uv and tomli
 RUN pip install uv tomli
 
-# Copy dependency files
-COPY pyproject.toml uv.lock ./
+# Copy the application first
+COPY . .
 
-# Install dependencies from pyproject.toml
-RUN uv pip install --system $(python3 -c 'import tomli; print(" ".join(tomli.load(open("pyproject.toml", "rb"))["project"]["dependencies"]))')
-
-# Copy the rest of the application
-COPY app/ app/
-COPY script/ script/
+# Clean Python cache files
+RUN find . -type d -name __pycache__ -exec rm -r {} +
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
+# Create log directory and set permissions
+RUN mkdir -p /app/logs && \
+    touch /app/app.log && \
+    chmod 777 /app/app.log && \
+    mkdir -p vector_store/chroma_db && \
+    chmod -R 777 vector_store
+
+# Install dependencies
+RUN uv pip install --system langchain-core>=0.1.27 && \
+    uv pip install --system .
+
 # Expose port
-EXPOSE 8000
+EXPOSE 443
 
 # Run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "443"]

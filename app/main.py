@@ -65,4 +65,9 @@ def create_app() -> FastAPI:
 
 app = create_app()
 
+@app.get("/", tags=["health"])
+async def root():
+  from datetime import datetime, timezone
+  return {"success": True, "time": datetime.now(timezone.utc).isoformat()}
+
 app.include_router(RagRouter)
