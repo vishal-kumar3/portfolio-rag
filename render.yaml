@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: portfolio-rag
+    env: docker
+    region: singapore
+    plan: free
+    healthCheckPath: /docs
+    envVars:
+      - key: PORT
+        value: 8000
+    buildCommand: make docker-build
+    startCommand: make docker-up

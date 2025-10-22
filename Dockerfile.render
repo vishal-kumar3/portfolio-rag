@@ -19,23 +19,27 @@ COPY . .
 # Clean Python cache files
 RUN find . -type d -name __pycache__ -exec rm -r {} +
 
+# Create directories and set permissions
+RUN mkdir -p /app/logs /app/data/chroma && \
+    touch /app/app.log && \
+    chmod -R 777 /app/logs /app/data && \
+    chmod 777 /app/app.log
+
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
-
-# Create log directory and set permissions
-RUN mkdir -p /app/logs && \
-    touch /app/app.log && \
-    chmod 777 /app/app.log && \
-    mkdir -p vector_store/chroma_db && \
-    chmod -R 777 vector_store
+ENV PORT=8000
 
 # Install dependencies
 RUN uv pip install --system langchain-core>=0.1.27 && \
     uv pip install --system .
 
-# Expose port
-EXPOSE 8000
+# Expose port (Render will override this with their PORT env var)
+EXPOSE ${PORT}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/docs || exit 1
 
 # Run the application
-CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT}
